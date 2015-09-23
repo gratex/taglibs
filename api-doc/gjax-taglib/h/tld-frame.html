@@ -1,0 +1,378 @@
+<html xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Html tags
+              (Tags that are responsible for generating HTML or XHTML output, DocType and also setting appropriate Content-type. 
+&lt;br&gt;&lt;a href="html/DOCTYPE.html"&gt;&amp;lt;DOCTYPE&amp;gt;&lt;/a&gt; tag MUST be used before any other tag! 
+&lt;br&gt;
+&lt;br&gt;&lt;b&gt;Configuration&lt;/b&gt; 
+&lt;br&gt;All settings can be done in four different ways: setting attributes of &amp;lt;DOCTYPE&amp;gt; setting init parameters (web.xml); setting servletContext attribute ; setting request attribute. If one parameter is set in more places preferences are: 1. request attribute 2. tag attribute 3. servletContext attribute 4. init parameter 5. defaul value
+&lt;br&gt; 
+&lt;br&gt;Example of setting init parameter: 
+&lt;br&gt;&amp;lt;context-param&amp;gt; 
+&lt;br&gt;&amp;lt;param-name&amp;gt;com.gratex.gjaxXB.tags.html.doctype&amp;lt;/param-name&amp;gt; 
+&lt;br&gt;&amp;lt;param-value&amp;gt;STRICT&amp;lt;/param-value&amp;gt; 
+&lt;br&gt;&amp;lt;/context-param&amp;gt; 
+
+&lt;br&gt; 
+&lt;br&gt;&lt;b&gt;&lt;i&gt;Markup&lt;/i&gt;&lt;/b&gt;; 
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.markup&lt;/i&gt;;
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;HTML4 (default) - ContentType will be set to 'text/html'&lt;/li&gt;
+&lt;li&gt;XHTML - ContentType will be set according to 'xhtmlMode'&lt;/li&gt;
+&lt;li&gt;HTML5 - ContentType will be set to 'text/html'&lt;/li&gt;
+&lt;li&gt;XHTML5 - ContentType will be set according to 'xhtmlMode'&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;b&gt;&lt;i&gt;Omit end tags&lt;/i&gt;&lt;/b&gt; 
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.omitEndTags&lt;/i&gt;
+&lt;br&gt;When set to 'true' (if markup=='XHTML' it will be ignored), omits end tag in these tags: &amp;lt;DD&amp;gt; &amp;lt;DT&amp;gt; &amp;lt;LI&amp;gt; &amp;lt;OPTION&amp;gt; &amp;lt;TD&amp;gt; &amp;lt;TH&amp;gt; &amp;lt;TR&amp;amp;gt;
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;false (default)&lt;/li&gt;
+&lt;li&gt;true&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;b id="xhtmlMode"&gt;&lt;i&gt;XHTML mode&lt;/i&gt;&lt;/b&gt; 
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.xhtmlMode&lt;/i&gt;
+&lt;br&gt;This setting will be ignored if markup!='XHTML' or 'XHTML5'.
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;HTML_COMPATIBLE (default) - only EMPTY tags will be minimized, ContentType will be set to 'text/html'&lt;/li&gt;
+&lt;li&gt;FULL - no tags will be minimized, ContentType will be set to 'application/xhtml+xml'&lt;/li&gt;
+&lt;li&gt;MINIMIZED - tags that can be minimized and have no body will be minimized, ContentType will be set to 'application/xhtml+xml'&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;b&gt;&lt;i&gt;DTD&lt;/i&gt;&lt;/b&gt; 
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.dtd&lt;/i&gt;
+&lt;br&gt;Defines what DOCTYPE declaration will be printed out. If markup is 'HTML5' and DTD not set to 'NONE', &amp;lt;!DOCTYPE HTML&amp;gt; will be printed out.
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;STRICT (default)&lt;/li&gt;
+&lt;li&gt;TRANSATIONAL&lt;/li&gt;
+&lt;li&gt;FRAMESET&lt;/li&gt;
+&lt;li&gt;NONE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;b&gt;&lt;i&gt;Encoding&lt;/i&gt;&lt;/b&gt; 
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.encoding&lt;/i&gt;
+&lt;br&gt;Default value is 'UTF-8'
+&lt;br&gt;   
+
+&lt;br&gt;&lt;b&gt;&lt;i&gt;Generate XML declaration&lt;/i&gt;&lt;/b&gt; 
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.generateXmlDeclaration&lt;/i&gt;
+&lt;br&gt;When set to 'true' (and markup=='XHTML' otherwise ignored), generates XML declaration (&amp;lt;?xml .. ?&amp;amp;gt;)
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;false (default)&lt;/li&gt;
+&lt;li&gt;true&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;b&gt;&lt;i&gt;Generate META tag&lt;/i&gt;&lt;/b&gt; 
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.generateMetaTag&lt;/i&gt;
+&lt;br&gt;When set to 'true' correct metatag with content type and encoding will be generated(&amp;lt;?xml .. ?&amp;gt;)
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;true (default)&lt;/li&gt;
+&lt;li&gt;false&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;b&gt;&lt;i&gt;Check nesting&lt;/i&gt;&lt;/b&gt;  
+&lt;br&gt;Prevent generating meaningless empty tags.
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.checkNesting&lt;/i&gt;
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;NONE (default)&lt;/li&gt;
+&lt;li&gt;WARNING&lt;/li&gt;
+&lt;li&gt;ERROR - (IllegalStateExcteption)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;b&gt;&lt;i&gt;Comments output&lt;/i&gt;&lt;/b&gt;  
+&lt;br&gt;Are comments printed to output?
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.commentsOutput&lt;/i&gt;
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;false (default)&lt;/li&gt;
+&lt;li&gt;true&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;b&gt;&lt;i&gt;Comments escaping&lt;/i&gt;&lt;/b&gt;  
+&lt;br&gt;Is body of comments escaped?
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.commentsEscape&lt;/i&gt;
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;true (default)&lt;/li&gt;
+&lt;li&gt;false&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;&lt;b&gt;&lt;i&gt;Conditional comments escaping&lt;/i&gt;&lt;/b&gt;  
+&lt;br&gt;Is body of comments escaped?
+&lt;br&gt;KEY: &lt;i&gt;com.gratex.gjaxXB.tags.html.conditionalCommentsEscape&lt;/i&gt;
+&lt;br&gt;VALUES:
+&lt;ul&gt;
+&lt;li&gt;false (default)&lt;/li&gt;
+&lt;li&gt;true&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;Attributes which value is NULL or empty String will be printed out.
+&lt;br&gt;All tags have additional attributes innerText and innerHTML. If one of these attribute is present, its content will be printed out instead of the body. HTML escaped if innerText and unescaped if innerHTML.
+)
+            </title>
+<meta name="keywords" content="$tldfull">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+<script>
+              function asd()
+              {
+              parent.document.title="Html tags (Tags that are responsible for generating HTML or XHTML output, DocType and also setting appropriate Content-type. <br><a href="html/DOCTYPE.html">&lt;DOCTYPE&gt;</a> tag MUST be used before any other tag! <br> <br><b>Configuration</b> <br>All settings can be done in four different ways: setting attributes of &lt;DOCTYPE&gt; setting init parameters (web.xml); setting servletContext attribute ; setting request attribute. If one parameter is set in more places preferences are: 1. request attribute 2. tag attribute 3. servletContext attribute 4. init parameter 5. defaul value <br> <br>Example of setting init parameter: <br>&lt;context-param&gt; <br>&lt;param-name&gt;com.gratex.gjaxXB.tags.html.doctype&lt;/param-name&gt; <br>&lt;param-value&gt;STRICT&lt;/param-value&gt; <br>&lt;/context-param&gt; <br> <br><b><i>Markup</i></b>; <br>KEY: <i>com.gratex.gjaxXB.tags.html.markup</i>; <br>VALUES: <ul> <li>HTML4 (default) - ContentType will be set to 'text/html'</li> <li>XHTML - ContentType will be set according to 'xhtmlMode'</li> <li>HTML5 - ContentType will be set to 'text/html'</li> <li>XHTML5 - ContentType will be set according to 'xhtmlMode'</li> </ul> <b><i>Omit end tags</i></b> <br>KEY: <i>com.gratex.gjaxXB.tags.html.omitEndTags</i> <br>When set to 'true' (if markup=='XHTML' it will be ignored), omits end tag in these tags: &lt;DD&gt; &lt;DT&gt; &lt;LI&gt; &lt;OPTION&gt; &lt;TD&gt; &lt;TH&gt; &lt;TR&amp;gt; <br>VALUES: <ul> <li>false (default)</li> <li>true</li> </ul> <b id="xhtmlMode"><i>XHTML mode</i></b> <br>KEY: <i>com.gratex.gjaxXB.tags.html.xhtmlMode</i> <br>This setting will be ignored if markup!='XHTML' or 'XHTML5'. <br>VALUES: <ul> <li>HTML_COMPATIBLE (default) - only EMPTY tags will be minimized, ContentType will be set to 'text/html'</li> <li>FULL - no tags will be minimized, ContentType will be set to 'application/xhtml+xml'</li> <li>MINIMIZED - tags that can be minimized and have no body will be minimized, ContentType will be set to 'application/xhtml+xml'</li> </ul> <b><i>DTD</i></b> <br>KEY: <i>com.gratex.gjaxXB.tags.html.dtd</i> <br>Defines what DOCTYPE declaration will be printed out. If markup is 'HTML5' and DTD not set to 'NONE', &lt;!DOCTYPE HTML&gt; will be printed out. <br>VALUES: <ul> <li>STRICT (default)</li> <li>TRANSATIONAL</li> <li>FRAMESET</li> <li>NONE</li> </ul> <b><i>Encoding</i></b> <br>KEY: <i>com.gratex.gjaxXB.tags.html.encoding</i> <br>Default value is 'UTF-8' <br> <br><b><i>Generate XML declaration</i></b> <br>KEY: <i>com.gratex.gjaxXB.tags.html.generateXmlDeclaration</i> <br>When set to 'true' (and markup=='XHTML' otherwise ignored), generates XML declaration (&lt;?xml .. ?&amp;gt;) <br>VALUES: <ul> <li>false (default)</li> <li>true</li> </ul> <br><b><i>Generate META tag</i></b> <br>KEY: <i>com.gratex.gjaxXB.tags.html.generateMetaTag</i> <br>When set to 'true' correct metatag with content type and encoding will be generated(&lt;?xml .. ?&gt;) <br>VALUES: <ul> <li>true (default)</li> <li>false</li> </ul> <br><b><i>Check nesting</i></b> <br>Prevent generating meaningless empty tags. <br>KEY: <i>com.gratex.gjaxXB.tags.html.checkNesting</i> <br>VALUES: <ul> <li>NONE (default)</li> <li>WARNING</li> <li>ERROR - (IllegalStateExcteption)</li> </ul> <br><b><i>Comments output</i></b> <br>Are comments printed to output? <br>KEY: <i>com.gratex.gjaxXB.tags.html.commentsOutput</i> <br>VALUES: <ul> <li>false (default)</li> <li>true</li> </ul> <br><b><i>Comments escaping</i></b> <br>Is body of comments escaped? <br>KEY: <i>com.gratex.gjaxXB.tags.html.commentsEscape</i> <br>VALUES: <ul> <li>true (default)</li> <li>false</li> </ul> <br><b><i>Conditional comments escaping</i></b> <br>Is body of comments escaped? <br>KEY: <i>com.gratex.gjaxXB.tags.html.conditionalCommentsEscape</i> <br>VALUES: <ul> <li>false (default)</li> <li>true</li> </ul> <br>Attributes which value is NULL or empty String will be printed out. <br>All tags have additional attributes innerText and innerHTML. If one of these attribute is present, its content will be printed out instead of the body. HTML escaped if innerText and unescaped if innerHTML. )";
+              }
+            </script>
+</head>
+<body bgcolor="white" onload="asd();">
+<font size="+1" class="FrameTitleFont"><a href="tld-summary.html" target="tagFrame">Html tags</a></font>
+<table border="0" width="100%">
+<tr>
+<td nowrap="true"><font size="+1" class="FrameHeadingFont">
+                      Tags
+                    </font>&nbsp;
+                    <font class="FrameItemFont">
+<br>
+<a href="DOCTYPE.html" target="tagFrame">h:DOCTYPE</a>
+<br>
+<a href="_.html" target="tagFrame">h:_</a>
+<br>
+<a href="_if.html" target="tagFrame">h:_if</a>
+<br>
+<a href="div.html" target="tagFrame">h:div</a>
+<br>
+<a href="body.html" target="tagFrame">h:body</a>
+<br>
+<a href="html.html" target="tagFrame">h:html</a>
+<br>
+<a href="link.html" target="tagFrame">h:link</a>
+<br>
+<a href="script.html" target="tagFrame">h:script</a>
+<br>
+<a href="a.html" target="tagFrame">h:a</a>
+<br>
+<a href="abbr.html" target="tagFrame">h:abbr</a>
+<br>
+<a href="acronym.html" target="tagFrame">h:acronym</a>
+<br>
+<a href="address.html" target="tagFrame">h:address</a>
+<br>
+<a href="area.html" target="tagFrame">h:area</a>
+<br>
+<a href="article.html" target="tagFrame">h:article</a>
+<br>
+<a href="aside.html" target="tagFrame">h:aside</a>
+<br>
+<a href="audio.html" target="tagFrame">h:audio</a>
+<br>
+<a href="b.html" target="tagFrame">h:b</a>
+<br>
+<a href="base.html" target="tagFrame">h:base</a>
+<br>
+<a href="bdo.html" target="tagFrame">h:bdo</a>
+<br>
+<a href="big.html" target="tagFrame">h:big</a>
+<br>
+<a href="blockquote.html" target="tagFrame">h:blockquote</a>
+<br>
+<a href="br.html" target="tagFrame">h:br</a>
+<br>
+<a href="button.html" target="tagFrame">h:button</a>
+<br>
+<a href="canvas.html" target="tagFrame">h:canvas</a>
+<br>
+<a href="caption.html" target="tagFrame">h:caption</a>
+<br>
+<a href="cite.html" target="tagFrame">h:cite</a>
+<br>
+<a href="code.html" target="tagFrame">h:code</a>
+<br>
+<a href="col.html" target="tagFrame">h:col</a>
+<br>
+<a href="colgroup.html" target="tagFrame">h:colgroup</a>
+<br>
+<a href="command.html" target="tagFrame">h:command</a>
+<br>
+<a href="datalist.html" target="tagFrame">h:datalist</a>
+<br>
+<a href="dd.html" target="tagFrame">h:dd</a>
+<br>
+<a href="del.html" target="tagFrame">h:del</a>
+<br>
+<a href="details.html" target="tagFrame">h:details</a>
+<br>
+<a href="dfn.html" target="tagFrame">h:dfn</a>
+<br>
+<a href="dl.html" target="tagFrame">h:dl</a>
+<br>
+<a href="dt.html" target="tagFrame">h:dt</a>
+<br>
+<a href="em.html" target="tagFrame">h:em</a>
+<br>
+<a href="embed.html" target="tagFrame">h:embed</a>
+<br>
+<a href="fieldset.html" target="tagFrame">h:fieldset</a>
+<br>
+<a href="figcaption.html" target="tagFrame">h:figcaption</a>
+<br>
+<a href="figure.html" target="tagFrame">h:figure</a>
+<br>
+<a href="footer.html" target="tagFrame">h:footer</a>
+<br>
+<a href="form.html" target="tagFrame">h:form</a>
+<br>
+<a href="frame.html" target="tagFrame">h:frame</a>
+<br>
+<a href="frameset.html" target="tagFrame">h:frameset</a>
+<br>
+<a href="h1.html" target="tagFrame">h:h1</a>
+<br>
+<a href="h2.html" target="tagFrame">h:h2</a>
+<br>
+<a href="h3.html" target="tagFrame">h:h3</a>
+<br>
+<a href="h4.html" target="tagFrame">h:h4</a>
+<br>
+<a href="h5.html" target="tagFrame">h:h5</a>
+<br>
+<a href="h6.html" target="tagFrame">h:h6</a>
+<br>
+<a href="head.html" target="tagFrame">h:head</a>
+<br>
+<a href="header.html" target="tagFrame">h:header</a>
+<br>
+<a href="hgroup.html" target="tagFrame">h:hgroup</a>
+<br>
+<a href="hr.html" target="tagFrame">h:hr</a>
+<br>
+<a href="i.html" target="tagFrame">h:i</a>
+<br>
+<a href="iframe.html" target="tagFrame">h:iframe</a>
+<br>
+<a href="img.html" target="tagFrame">h:img</a>
+<br>
+<a href="input.html" target="tagFrame">h:input</a>
+<br>
+<a href="ins.html" target="tagFrame">h:ins</a>
+<br>
+<a href="kbd.html" target="tagFrame">h:kbd</a>
+<br>
+<a href="keygen.html" target="tagFrame">h:keygen</a>
+<br>
+<a href="label.html" target="tagFrame">h:label</a>
+<br>
+<a href="legend.html" target="tagFrame">h:legend</a>
+<br>
+<a href="li.html" target="tagFrame">h:li</a>
+<br>
+<a href="map.html" target="tagFrame">h:map</a>
+<br>
+<a href="mark.html" target="tagFrame">h:mark</a>
+<br>
+<a href="meta.html" target="tagFrame">h:meta</a>
+<br>
+<a href="meter.html" target="tagFrame">h:meter</a>
+<br>
+<a href="nav.html" target="tagFrame">h:nav</a>
+<br>
+<a href="noframes.html" target="tagFrame">h:noframes</a>
+<br>
+<a href="noscript.html" target="tagFrame">h:noscript</a>
+<br>
+<a href="object.html" target="tagFrame">h:object</a>
+<br>
+<a href="ol.html" target="tagFrame">h:ol</a>
+<br>
+<a href="optgroup.html" target="tagFrame">h:optgroup</a>
+<br>
+<a href="option.html" target="tagFrame">h:option</a>
+<br>
+<a href="output.html" target="tagFrame">h:output</a>
+<br>
+<a href="p.html" target="tagFrame">h:p</a>
+<br>
+<a href="param.html" target="tagFrame">h:param</a>
+<br>
+<a href="pre.html" target="tagFrame">h:pre</a>
+<br>
+<a href="progress.html" target="tagFrame">h:progress</a>
+<br>
+<a href="q.html" target="tagFrame">h:q</a>
+<br>
+<a href="rp.html" target="tagFrame">h:rp</a>
+<br>
+<a href="rt.html" target="tagFrame">h:rt</a>
+<br>
+<a href="ruby.html" target="tagFrame">h:ruby</a>
+<br>
+<a href="samp.html" target="tagFrame">h:samp</a>
+<br>
+<a href="section.html" target="tagFrame">h:section</a>
+<br>
+<a href="select.html" target="tagFrame">h:select</a>
+<br>
+<a href="small.html" target="tagFrame">h:small</a>
+<br>
+<a href="source.html" target="tagFrame">h:source</a>
+<br>
+<a href="span.html" target="tagFrame">h:span</a>
+<br>
+<a href="strong.html" target="tagFrame">h:strong</a>
+<br>
+<a href="style.html" target="tagFrame">h:style</a>
+<br>
+<a href="sub.html" target="tagFrame">h:sub</a>
+<br>
+<a href="summary.html" target="tagFrame">h:summary</a>
+<br>
+<a href="sup.html" target="tagFrame">h:sup</a>
+<br>
+<a href="table.html" target="tagFrame">h:table</a>
+<br>
+<a href="tbody.html" target="tagFrame">h:tbody</a>
+<br>
+<a href="td.html" target="tagFrame">h:td</a>
+<br>
+<a href="textarea.html" target="tagFrame">h:textarea</a>
+<br>
+<a href="tfoot.html" target="tagFrame">h:tfoot</a>
+<br>
+<a href="th.html" target="tagFrame">h:th</a>
+<br>
+<a href="thead.html" target="tagFrame">h:thead</a>
+<br>
+<a href="time.html" target="tagFrame">h:time</a>
+<br>
+<a href="title.html" target="tagFrame">h:title</a>
+<br>
+<a href="tr.html" target="tagFrame">h:tr</a>
+<br>
+<a href="tt.html" target="tagFrame">h:tt</a>
+<br>
+<a href="ul.html" target="tagFrame">h:ul</a>
+<br>
+<a href="var.html" target="tagFrame">h:var</a>
+<br>
+<a href="video.html" target="tagFrame">h:video</a>
+<br>
+<a href="wbr.html" target="tagFrame">h:wbr</a></font></td>
+</tr>
+<tr>
+<td nowrap="true"><font size="+1" class="FrameHeadingFont">
+                      Functions
+                    </font>&nbsp;
+                    <font class="FrameItemFont">
+<br>
+<a href="encode.fn.html" target="tagFrame"><i>h:encode()</i></a>
+<br>
+<a href="encodeJS.fn.html" target="tagFrame"><i>h:encodeJS()</i></a>
+<br>
+<a href="isBoolean.fn.html" target="tagFrame"><i>h:isBoolean()</i></a></font></td>
+</tr>
+</table>
+</body>
+</html>

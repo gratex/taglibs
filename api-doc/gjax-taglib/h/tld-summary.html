@@ -1,0 +1,593 @@
+<html xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Html tags
+          (Gjax Tag library documentation)
+        </title>
+<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="styie">
+</head>
+<script>
+            function asd()
+            {
+            parent.document.title="Html tags (Gjax Tag library documentation)";
+            }
+          </script>
+<body bgcolor="white" onload="asd();">
+<a name="navbar_top"></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td COLSPAN="3" BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><a NAME="navbar_top_firstrow"></a>
+<table BORDER="0" CELLPADDING="0" CELLSPACING="3">
+<tr ALIGN="center" VALIGN="top">
+<td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a href="../overview-summary.html"><font CLASS="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td><td BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev">    &nbsp;<font CLASS="NavBarFont1Rev">&nbsp;Library&nbsp;</font>&nbsp;</td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><font CLASS="NavBarFont1">&nbsp;Tag&nbsp;</font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a HREF="../help-doc.html"><font CLASS="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+</tr>
+</table>
+</td><td ALIGN="right" VALIGN="top" ROWSPAN="3"><em></em></td>
+</tr>
+<tr>
+<td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2"></font></td><td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2">
+                &nbsp;<a HREF="../index.html" TARGET="_top"><b>FRAMES</b></a>&nbsp;
+                &nbsp;<a HREF="tld-summary.html" TARGET="_top"><b>NO FRAMES</b></a>&nbsp;
+                <script></script>
+<noscript>
+<a HREF="../alltags-noframe.html" TARGET=""><b>All Tags</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<hr>
+<h2>Html tags</h2>
+<hr>
+<b>Standard Syntax:</b>
+<br>
+<code>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                
+                    &lt;%@ taglib prefix="h" uri="http://gratex.com/gjaxXB/tags/html" %&gt;<br>
+</code>
+<br>
+<b>XML Syntax:</b>
+<br>
+<code>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                
+                    &lt;anyxmlelement xmlns:h="http://gratex.com/gjaxXB/tags/html" /&gt;<br>
+</code>
+<hr>
+<pre>Tags that are responsible for generating HTML or XHTML output, DocType and also setting appropriate Content-type. 
+<br><a href="html/DOCTYPE.html">&lt;DOCTYPE&gt;</a> tag MUST be used before any other tag! 
+<br>
+<br><b>Configuration</b> 
+<br>All settings can be done in four different ways: setting attributes of &lt;DOCTYPE&gt; setting init parameters (web.xml); setting servletContext attribute ; setting request attribute. If one parameter is set in more places preferences are: 1. request attribute 2. tag attribute 3. servletContext attribute 4. init parameter 5. defaul value
+<br> 
+<br>Example of setting init parameter: 
+<br>&lt;context-param&gt; 
+<br>&lt;param-name&gt;com.gratex.gjaxXB.tags.html.doctype&lt;/param-name&gt; 
+<br>&lt;param-value&gt;STRICT&lt;/param-value&gt; 
+<br>&lt;/context-param&gt; 
+
+<br> 
+<br><b><i>Markup</i></b>; 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.markup</i>;
+<br>VALUES:
+<ul>
+<li>HTML4 (default) - ContentType will be set to 'text/html'</li>
+<li>XHTML - ContentType will be set according to 'xhtmlMode'</li>
+<li>HTML5 - ContentType will be set to 'text/html'</li>
+<li>XHTML5 - ContentType will be set according to 'xhtmlMode'</li>
+</ul>
+
+<b><i>Omit end tags</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.omitEndTags</i>
+<br>When set to 'true' (if markup=='XHTML' it will be ignored), omits end tag in these tags: &lt;DD&gt; &lt;DT&gt; &lt;LI&gt; &lt;OPTION&gt; &lt;TD&gt; &lt;TH&gt; &lt;TR&amp;gt;
+<br>VALUES:
+<ul>
+<li>false (default)</li>
+<li>true</li>
+</ul>
+
+<b id="xhtmlMode"><i>XHTML mode</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.xhtmlMode</i>
+<br>This setting will be ignored if markup!='XHTML' or 'XHTML5'.
+<br>VALUES:
+<ul>
+<li>HTML_COMPATIBLE (default) - only EMPTY tags will be minimized, ContentType will be set to 'text/html'</li>
+<li>FULL - no tags will be minimized, ContentType will be set to 'application/xhtml+xml'</li>
+<li>MINIMIZED - tags that can be minimized and have no body will be minimized, ContentType will be set to 'application/xhtml+xml'</li>
+</ul>
+
+<b><i>DTD</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.dtd</i>
+<br>Defines what DOCTYPE declaration will be printed out. If markup is 'HTML5' and DTD not set to 'NONE', &lt;!DOCTYPE HTML&gt; will be printed out.
+<br>VALUES:
+<ul>
+<li>STRICT (default)</li>
+<li>TRANSATIONAL</li>
+<li>FRAMESET</li>
+<li>NONE</li>
+</ul>
+
+<b><i>Encoding</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.encoding</i>
+<br>Default value is 'UTF-8'
+<br>   
+
+<br><b><i>Generate XML declaration</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.generateXmlDeclaration</i>
+<br>When set to 'true' (and markup=='XHTML' otherwise ignored), generates XML declaration (&lt;?xml .. ?&amp;gt;)
+<br>VALUES:
+<ul>
+<li>false (default)</li>
+<li>true</li>
+</ul>
+
+<br><b><i>Generate META tag</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.generateMetaTag</i>
+<br>When set to 'true' correct metatag with content type and encoding will be generated(&lt;?xml .. ?&gt;)
+<br>VALUES:
+<ul>
+<li>true (default)</li>
+<li>false</li>
+</ul>
+
+<br><b><i>Check nesting</i></b>  
+<br>Prevent generating meaningless empty tags.
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.checkNesting</i>
+<br>VALUES:
+<ul>
+<li>NONE (default)</li>
+<li>WARNING</li>
+<li>ERROR - (IllegalStateExcteption)</li>
+</ul>
+
+<br><b><i>Comments output</i></b>  
+<br>Are comments printed to output?
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.commentsOutput</i>
+<br>VALUES:
+<ul>
+<li>false (default)</li>
+<li>true</li>
+</ul>
+
+<br><b><i>Comments escaping</i></b>  
+<br>Is body of comments escaped?
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.commentsEscape</i>
+<br>VALUES:
+<ul>
+<li>true (default)</li>
+<li>false</li>
+</ul>
+
+<br><b><i>Conditional comments escaping</i></b>  
+<br>Is body of comments escaped?
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.conditionalCommentsEscape</i>
+<br>VALUES:
+<ul>
+<li>false (default)</li>
+<li>true</li>
+</ul>
+
+<br>Attributes which value is NULL or empty String will be printed out.
+<br>All tags have additional attributes innerText and innerHTML. If one of these attribute is present, its content will be printed out instead of the body. HTML escaped if innerText and unescaped if innerHTML.
+</pre>
+<p></p>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<td colspan="2"><font size="+2"><b>Tag Library Information</b></font></td>
+</tr>
+<tr>
+<td>Display Name</td><td>Html tags</td>
+</tr>
+<tr>
+<td>Version</td><td>1.0</td>
+</tr>
+<tr>
+<td>Short Name</td><td>h</td>
+</tr>
+<tr>
+<td>URI</td><td>http://gratex.com/gjaxXB/tags/html</td>
+</tr>
+</table>
+            &nbsp;
+            <p></p>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<td colspan="2"><font size="+2"><b>Tag Summary</b></font></td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="DOCTYPE.html">DOCTYPE</a></b></td><td>Tag that is responsible for generating doctype, xml declaration, setting contentType. It MUST be used before any other tag! If more than one presence of DOCTYPE tag is found (for example nesting with Tiles), second and next usage will be ignored (and logged as Warning)</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="_.html">_</a></b></td><td>HTML comment. Comment is printed to client code only if init parameter with key '<em>com.gratex.gjaxXB.tags.html.commentsOutput</em>' is set to <em>true</em>.
+			<br>If attribute 'content' is not null, body of tag is ignored.
+			Content of comment is HTML escaped. This behaviour can be changed by  init parameter '<em>com.gratex.gjaxXB.tags.html.commentsEscape</em>' or attribute htmlEscape.
+		</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="_if.html">_if</a></b></td><td>IE conditional comment..
+			<br>If attribute 'content' is not null, body of tag is ignored.
+			<br>Content of comment is HTML escaped. This behaviour can be changed by  init parameter '<em>com.gratex.gjaxXB.tags.html.commentsEscape</em>' or attribute htmlEscape.
+			<br>
+			<br>Output is (if 'notIE' is false or not present):&lt;!--[<em>condition</em>]&gt;BODY&lt;![endif]--&gt;
+			<br>Or: &lt;!--[if !IE]&gt;&lt;!--&gt;BODY&lt;!--&lt;![endif]--&gt;
+			<br>Or: &lt;!--[if (<em>condition</em>)|!IE]&gt;&lt;!--&gt;BODY&lt!--&lt;![endif]--&gt;</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="div.html">div</a></b></td><td>DIV, XHTML and HTML sensitiv</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="body.html">body</a></b></td><td>BODY, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="html.html">html</a></b></td><td>HTML, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="link.html">link</a></b></td><td>LINK, XHTML and HTML sensitive. Adds 'rel' attribute with value 'stylesheet' if no 'rel' specified. Adds 'type' 'text/css' if 'rel' is 'stylesheet' and not HTML5 markup.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="script.html">script</a></b></td><td>SCRIPT, XHTML and HTML sensitive. If markup mode is XHTML 'type="text/javascript"' is automatically inserted. Body of tag will be ignored, if attribute SRC is present. In XHTML mode, content is wrapped by CDATA.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="a.html">a</a></b></td><td>A, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="abbr.html">abbr</a></b></td><td>ABBR, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="acronym.html">acronym</a></b></td><td>DEPRECATED! ACRONYM, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="address.html">address</a></b></td><td>ADDRESS, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="area.html">area</a></b></td><td>AREA, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="article.html">article</a></b></td><td>ARTICLE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="aside.html">aside</a></b></td><td>ASIDE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="audio.html">audio</a></b></td><td>AUDIO, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="b.html">b</a></b></td><td>B, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="base.html">base</a></b></td><td>BASE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="bdo.html">bdo</a></b></td><td>BDO, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="big.html">big</a></b></td><td>DEPRECATED! BIG, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="blockquote.html">blockquote</a></b></td><td>BLOCKQUOTE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="br.html">br</a></b></td><td>BR, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="button.html">button</a></b></td><td>BUTTON, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="canvas.html">canvas</a></b></td><td>CANVAS, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="caption.html">caption</a></b></td><td>CAPTION, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="cite.html">cite</a></b></td><td>CITE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="code.html">code</a></b></td><td>CODE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="col.html">col</a></b></td><td>COL, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="colgroup.html">colgroup</a></b></td><td>COLGROUP, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="command.html">command</a></b></td><td>COMMAND, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="datalist.html">datalist</a></b></td><td>DATALIST, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="dd.html">dd</a></b></td><td>DD, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="del.html">del</a></b></td><td>DEL, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="details.html">details</a></b></td><td>DETAILS, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="dfn.html">dfn</a></b></td><td>DFN, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="dl.html">dl</a></b></td><td>DL, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="dt.html">dt</a></b></td><td>DT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="em.html">em</a></b></td><td>EM, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="embed.html">embed</a></b></td><td>EMBED, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="fieldset.html">fieldset</a></b></td><td>FIELDSET, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="figcaption.html">figcaption</a></b></td><td>FIGCAPTION, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="figure.html">figure</a></b></td><td>FIGURE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="footer.html">footer</a></b></td><td>FOOTER, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="form.html">form</a></b></td><td>FORM, XHTML and HTML sensitive. If no method is set, 'POST' will be printed out as default.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="frame.html">frame</a></b></td><td>DEPRECATED! FRAME, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="frameset.html">frameset</a></b></td><td>DEPRECATED! FRAMESET, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="h1.html">h1</a></b></td><td>H1, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="h2.html">h2</a></b></td><td>H2, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="h3.html">h3</a></b></td><td>H3, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="h4.html">h4</a></b></td><td>H4, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="h5.html">h5</a></b></td><td>H5, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="h6.html">h6</a></b></td><td>H6, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="head.html">head</a></b></td><td>HEAD, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="header.html">header</a></b></td><td>HEADER, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="hgroup.html">hgroup</a></b></td><td>HGROUP, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="hr.html">hr</a></b></td><td>HR, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="i.html">i</a></b></td><td>I, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="iframe.html">iframe</a></b></td><td>IFRAME, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="img.html">img</a></b></td><td>IMG, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="input.html">input</a></b></td><td>INPUT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ins.html">ins</a></b></td><td>INS, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="kbd.html">kbd</a></b></td><td>KBD, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="keygen.html">keygen</a></b></td><td>KEYGEN, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="label.html">label</a></b></td><td>LABEL, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="legend.html">legend</a></b></td><td>LEGEND, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="li.html">li</a></b></td><td>LI, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="map.html">map</a></b></td><td>MAP, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="mark.html">mark</a></b></td><td>MARK, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="meta.html">meta</a></b></td><td>META, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="meter.html">meter</a></b></td><td>METER, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="nav.html">nav</a></b></td><td>NAV, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="noframes.html">noframes</a></b></td><td>DEPRECATED! NOFRAMES, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="noscript.html">noscript</a></b></td><td>NOSCRIPT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="object.html">object</a></b></td><td>OBJECT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ol.html">ol</a></b></td><td>OL, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="optgroup.html">optgroup</a></b></td><td>OPTGROUP, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="option.html">option</a></b></td><td>OPTION, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="output.html">output</a></b></td><td>OUTPUT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="p.html">p</a></b></td><td>P, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="param.html">param</a></b></td><td>PARAM, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="pre.html">pre</a></b></td><td>PRE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="progress.html">progress</a></b></td><td>PROGRESS, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="q.html">q</a></b></td><td>Q, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="rp.html">rp</a></b></td><td>RP, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="rt.html">rt</a></b></td><td>RT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ruby.html">ruby</a></b></td><td>RUBY, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="samp.html">samp</a></b></td><td>SAMP, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="section.html">section</a></b></td><td>SECTION, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="select.html">select</a></b></td><td>SELECT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="small.html">small</a></b></td><td>SMALL, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="source.html">source</a></b></td><td>SOURCE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="span.html">span</a></b></td><td>SPAN, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="strong.html">strong</a></b></td><td>STRONG, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="style.html">style</a></b></td><td>STYLE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="sub.html">sub</a></b></td><td>SUB, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="summary.html">summary</a></b></td><td>SUMMARY, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="sup.html">sup</a></b></td><td>SUP, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="table.html">table</a></b></td><td>TABLE, XHTML and HTML sensitive. Taglibrary supports automatic setting of TH tag attribute SCOPE, if the tag is in THEAD (scope="col") or TBODY (scope="row") and it has been not set before. This behaviour is applyed only if TABLE attribute CLASS is set to 'th_scope_auto' (setting TH SCOPE in both THEAD and TBODY); 'th_scope_col' (setting TH SCOPE only in THEAD); or 'th_scope_row' (setting TH SCOPE only in TBODY).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="tbody.html">tbody</a></b></td><td>TBODY, XHTML and HTML sensitive.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="td.html">td</a></b></td><td>TD, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="textarea.html">textarea</a></b></td><td>TEXTAREA, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="tfoot.html">tfoot</a></b></td><td>TFOOT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="th.html">th</a></b></td><td>TH, XHTML and HTML sensitive. Taglibrary supports automatic setting of TH tag attribute SCOPE, if the tag is in THEAD (scope="col") or TBODY (scope="row") and it has been not set before. This behaviour is applyed only if TABLE attribute CLASS is set to 'th_scope_auto' (setting TH SCOPE in both THEAD and TBODY); 'th_scope_col' (setting TH SCOPE only in THEAD); or 'th_scope_row' (setting TH SCOPE only in TBODY).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="thead.html">thead</a></b></td><td>THEAD, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="time.html">time</a></b></td><td>TIME, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="title.html">title</a></b></td><td>TITLE, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="tr.html">tr</a></b></td><td>TR, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="tt.html">tt</a></b></td><td>DEPRECATED! TT, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ul.html">ul</a></b></td><td>UL, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="var.html">var</a></b></td><td>VAR, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="video.html">video</a></b></td><td>VIDEO, XHTML and HTML sensitive</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="wbr.html">wbr</a></b></td><td>WBR, XHTML and HTML sensitive</td>
+</tr>
+</table>
+              &nbsp;
+              <p></p>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<td colspan="3"><font size="+2"><b>Function Summary</b></font></td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%" nowrap align="right"><code>java.lang.String</code></td><td width="15%" nowrap><code><b><a href="encode.fn.html">encode</a></b>(  java.lang.String )</code></td><td>Encodes given string using com.gratex.gjaxXB.HtmlEncoder</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%" nowrap align="right"><code>java.lang.String</code></td><td width="15%" nowrap><code><b><a href="encodeJS.fn.html">encodeJS</a></b>(  java.lang.String )</code></td><td>Encodes given string for JS using org.owasp.esapi.Encoder</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%" nowrap align="right"><code>boolean</code></td><td width="15%" nowrap><code><b><a href="isBoolean.fn.html">isBoolean</a></b>(  java.lang.String )</code></td><td>Returns true if given string represents boolean value</td>
+</tr>
+</table>
+              &nbsp;
+              <p></p>
+<a name="navbar_bottom"></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td COLSPAN="3" BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><a NAME="navbar_bottom_firstrow"></a>
+<table BORDER="0" CELLPADDING="0" CELLSPACING="3">
+<tr ALIGN="center" VALIGN="top">
+<td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a href="../overview-summary.html"><font CLASS="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td><td BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev">    &nbsp;<font CLASS="NavBarFont1Rev">&nbsp;Library&nbsp;</font>&nbsp;</td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><font CLASS="NavBarFont1">&nbsp;Tag&nbsp;</font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a HREF="../help-doc.html"><font CLASS="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+</tr>
+</table>
+</td><td ALIGN="right" VALIGN="top" ROWSPAN="3"><em></em></td>
+</tr>
+<tr>
+<td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2"></font></td><td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2">
+                &nbsp;<a HREF="../index.html" TARGET="_top"><b>FRAMES</b></a>&nbsp;
+                &nbsp;<a HREF="tld-summary.html" TARGET="_top"><b>NO FRAMES</b></a>&nbsp;
+                <script></script>
+<noscript>
+<a HREF="../alltags-noframe.html" TARGET=""><b>All Tags</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<hr>
+<small><i>
+            Java, JSP, and JavaServer Pages are trademarks or registered 
+            trademarks of Sun Microsystems, Inc. in the US and other countries.
+            Copyright 2002-3 Sun Microsystems, Inc.
+            4150 Network Circle
+            Santa Clara, CA 95054, U.S.A.
+            All Rights Reserved. 
+            </i></small>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<html xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+            Overview (Gjax Tag library documentation)
+          </title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+</head>
+<script>
+          function asd() {
+            parent.document.title="Overview (Gjax Tag library documentation)";
+          }
+        </script>
+<body bgcolor="white" onload="asd();">
+<a name="navbar_top"></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td COLSPAN="3" BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><a NAME="navbar_top_firstrow"></a>
+<table BORDER="0" CELLPADDING="0" CELLSPACING="3">
+<tr ALIGN="center" VALIGN="top">
+<td BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"><font CLASS="NavBarFont1Rev"><b>&nbsp;Overview&nbsp;</b></font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><font CLASS="NavBarFont1">&nbsp;Library&nbsp;</font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><font CLASS="NavBarFont1">&nbsp;Tag&nbsp;</font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a HREF="help-doc.html"><font CLASS="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+</tr>
+</table>
+</td><td ALIGN="right" VALIGN="top" ROWSPAN="3"><em></em></td>
+</tr>
+<tr>
+<td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2"></font></td><td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2">
+                &nbsp;<a HREF="index.html" TARGET="_top"><b>FRAMES</b></a>&nbsp;
+                &nbsp;<a HREF="overview-summary.html" TARGET="_top"><b>NO FRAMES</b></a>&nbsp;
+                <script></script>
+<noscript>
+<a HREF="alltags-noframe.html" TARGET=""><b>All Tags</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<hr>
+<center>
+<h2>Tag Library Documentation Generator - Generated Documentation</h2>
+</center>
+<table BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<tr BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<td COLSPAN="2"><font SIZE="+2"><b>Tag Libraries</b></font></td>
+</tr>
+<tr BGCOLOR="white" valign="top" CLASS="TableRowColor">
+<td WIDTH="20%"><b><a href="x/tld-summary.html">Extended tags</a></b></td><td>
+<pre>Extended tags</pre>
+</td>
+</tr>
+<tr BGCOLOR="white" valign="top" CLASS="TableRowColor">
+<td WIDTH="20%"><b><a href="h/tld-summary.html">Html tags</a></b></td><td>
+<pre>Tags that are responsible for generating HTML or XHTML output, DocType and also setting appropriate Content-type. 
+<br><a href="html/DOCTYPE.html">&lt;DOCTYPE&gt;</a> tag MUST be used before any other tag! 
+<br>
+<br><b>Configuration</b> 
+<br>All settings can be done in four different ways: setting attributes of &lt;DOCTYPE&gt; setting init parameters (web.xml); setting servletContext attribute ; setting request attribute. If one parameter is set in more places preferences are: 1. request attribute 2. tag attribute 3. servletContext attribute 4. init parameter 5. defaul value
+<br> 
+<br>Example of setting init parameter: 
+<br>&lt;context-param&gt; 
+<br>&lt;param-name&gt;com.gratex.gjaxXB.tags.html.doctype&lt;/param-name&gt; 
+<br>&lt;param-value&gt;STRICT&lt;/param-value&gt; 
+<br>&lt;/context-param&gt; 
+
+<br> 
+<br><b><i>Markup</i></b>; 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.markup</i>;
+<br>VALUES:
+<ul>
+<li>HTML4 (default) - ContentType will be set to 'text/html'</li>
+<li>XHTML - ContentType will be set according to 'xhtmlMode'</li>
+<li>HTML5 - ContentType will be set to 'text/html'</li>
+<li>XHTML5 - ContentType will be set according to 'xhtmlMode'</li>
+</ul>
+
+<b><i>Omit end tags</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.omitEndTags</i>
+<br>When set to 'true' (if markup=='XHTML' it will be ignored), omits end tag in these tags: &lt;DD&gt; &lt;DT&gt; &lt;LI&gt; &lt;OPTION&gt; &lt;TD&gt; &lt;TH&gt; &lt;TR&amp;gt;
+<br>VALUES:
+<ul>
+<li>false (default)</li>
+<li>true</li>
+</ul>
+
+<b id="xhtmlMode"><i>XHTML mode</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.xhtmlMode</i>
+<br>This setting will be ignored if markup!='XHTML' or 'XHTML5'.
+<br>VALUES:
+<ul>
+<li>HTML_COMPATIBLE (default) - only EMPTY tags will be minimized, ContentType will be set to 'text/html'</li>
+<li>FULL - no tags will be minimized, ContentType will be set to 'application/xhtml+xml'</li>
+<li>MINIMIZED - tags that can be minimized and have no body will be minimized, ContentType will be set to 'application/xhtml+xml'</li>
+</ul>
+
+<b><i>DTD</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.dtd</i>
+<br>Defines what DOCTYPE declaration will be printed out. If markup is 'HTML5' and DTD not set to 'NONE', &lt;!DOCTYPE HTML&gt; will be printed out.
+<br>VALUES:
+<ul>
+<li>STRICT (default)</li>
+<li>TRANSATIONAL</li>
+<li>FRAMESET</li>
+<li>NONE</li>
+</ul>
+
+<b><i>Encoding</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.encoding</i>
+<br>Default value is 'UTF-8'
+<br>   
+
+<br><b><i>Generate XML declaration</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.generateXmlDeclaration</i>
+<br>When set to 'true' (and markup=='XHTML' otherwise ignored), generates XML declaration (&lt;?xml .. ?&amp;gt;)
+<br>VALUES:
+<ul>
+<li>false (default)</li>
+<li>true</li>
+</ul>
+
+<br><b><i>Generate META tag</i></b> 
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.generateMetaTag</i>
+<br>When set to 'true' correct metatag with content type and encoding will be generated(&lt;?xml .. ?&gt;)
+<br>VALUES:
+<ul>
+<li>true (default)</li>
+<li>false</li>
+</ul>
+
+<br><b><i>Check nesting</i></b>  
+<br>Prevent generating meaningless empty tags.
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.checkNesting</i>
+<br>VALUES:
+<ul>
+<li>NONE (default)</li>
+<li>WARNING</li>
+<li>ERROR - (IllegalStateExcteption)</li>
+</ul>
+
+<br><b><i>Comments output</i></b>  
+<br>Are comments printed to output?
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.commentsOutput</i>
+<br>VALUES:
+<ul>
+<li>false (default)</li>
+<li>true</li>
+</ul>
+
+<br><b><i>Comments escaping</i></b>  
+<br>Is body of comments escaped?
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.commentsEscape</i>
+<br>VALUES:
+<ul>
+<li>true (default)</li>
+<li>false</li>
+</ul>
+
+<br><b><i>Conditional comments escaping</i></b>  
+<br>Is body of comments escaped?
+<br>KEY: <i>com.gratex.gjaxXB.tags.html.conditionalCommentsEscape</i>
+<br>VALUES:
+<ul>
+<li>false (default)</li>
+<li>true</li>
+</ul>
+
+<br>Attributes which value is NULL or empty String will be printed out.
+<br>All tags have additional attributes innerText and innerHTML. If one of these attribute is present, its content will be printed out instead of the body. HTML escaped if innerText and unescaped if innerHTML.
+</pre>
+</td>
+</tr>
+<tr BGCOLOR="white" valign="top" CLASS="TableRowColor">
+<td WIDTH="20%"><b><a href="b/tld-summary.html">HTML5 Boilerplate</a></b></td><td>
+<pre>HTML5 Boilerplate tags</pre>
+</td>
+</tr>
+</table>
+<p></p>
+<hr>
+<a name="navbar_bottom"></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td COLSPAN="3" BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><a NAME="navbar_bottom_firstrow"></a>
+<table BORDER="0" CELLPADDING="0" CELLSPACING="3">
+<tr ALIGN="center" VALIGN="top">
+<td BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"><font CLASS="NavBarFont1Rev"><b>&nbsp;Overview&nbsp;</b></font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><font CLASS="NavBarFont1">&nbsp;Library&nbsp;</font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><font CLASS="NavBarFont1">&nbsp;Tag&nbsp;</font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a HREF="help-doc.html"><font CLASS="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+</tr>
+</table>
+</td><td ALIGN="right" VALIGN="top" ROWSPAN="3"><em></em></td>
+</tr>
+<tr>
+<td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2"></font></td><td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2">
+                &nbsp;<a HREF="index.html" TARGET="_top"><b>FRAMES</b></a>&nbsp;
+                &nbsp;<a HREF="overview-summary.html" TARGET="_top"><b>NO FRAMES</b></a>&nbsp;
+                <script></script>
+<noscript>
+<a HREF="alltags-noframe.html" TARGET=""><b>All Tags</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<hr>
+<small><i>
+          Output Generated by 
+          <a href="http://taglibrarydoc.dev.java.net/" target="_blank">Tag Library Documentation Generator</a>.
+          Java, JSP, and JavaServer Pages are trademarks or 
+          registered trademarks of Sun Microsystems, Inc. in the US and other
+          countries.  Copyright 2002-4 Sun Microsystems, Inc.
+          4150 Network Circle
+          Santa Clara, CA 95054, U.S.A.
+          All Rights Reserved. 
+          </i></small>
+</body>
+</html>

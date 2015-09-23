@@ -1,0 +1,240 @@
+<html xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Dojo tags
+          (Gjax Tag library for Spring documentation)
+        </title>
+<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="styie">
+</head>
+<script>
+            function asd()
+            {
+            parent.document.title="Dojo tags (Gjax Tag library for Spring documentation)";
+            }
+          </script>
+<body bgcolor="white" onload="asd();">
+<a name="navbar_top"></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td COLSPAN="3" BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><a NAME="navbar_top_firstrow"></a>
+<table BORDER="0" CELLPADDING="0" CELLSPACING="3">
+<tr ALIGN="center" VALIGN="top">
+<td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a href="../overview-summary.html"><font CLASS="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td><td BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev">    &nbsp;<font CLASS="NavBarFont1Rev">&nbsp;Library&nbsp;</font>&nbsp;</td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><font CLASS="NavBarFont1">&nbsp;Tag&nbsp;</font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a HREF="../help-doc.html"><font CLASS="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+</tr>
+</table>
+</td><td ALIGN="right" VALIGN="top" ROWSPAN="3"><em></em></td>
+</tr>
+<tr>
+<td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2"></font></td><td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2">
+                &nbsp;<a HREF="../index.html" TARGET="_top"><b>FRAMES</b></a>&nbsp;
+                &nbsp;<a HREF="tld-summary.html" TARGET="_top"><b>NO FRAMES</b></a>&nbsp;
+                <script></script>
+<noscript>
+<a HREF="../alltags-noframe.html" TARGET=""><b>All Tags</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<hr>
+<h2>Dojo tags</h2>
+<hr>
+<b>Standard Syntax:</b>
+<br>
+<code>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                
+                    &lt;%@ taglib prefix="d" uri="http://gratex.com/gjax/tags/dojo" %&gt;<br>
+</code>
+<br>
+<b>XML Syntax:</b>
+<br>
+<code>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                
+                    &lt;anyxmlelement xmlns:d="http://gratex.com/gjax/tags/dojo" /&gt;<br>
+</code>
+<hr>
+<pre>Dojo tags for layout, forms and grids (Widgets). &lt;br /&gt;Form widgets (ValidationTextBox, DateTextBox, FilteringSelect, etc.) automatically generate ID attributes if they are required  &lt;br /&gt;and not specified. ID attribute is required if 'label' or 'labelCode' attribute is specified. Generaded IDs are strings that consists &lt;br /&gt;of a prefix and a number. Prefix is '_' if markup mode is HTML5, or 'gen' if not. Number is an integer (unique per response) &lt;br /&gt;starting from 1 (_1, _2, _3, ...).</pre>
+<p></p>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<td colspan="2"><font size="+2"><b>Tag Library Information</b></font></td>
+</tr>
+<tr>
+<td>Display Name</td><td>Dojo tags</td>
+</tr>
+<tr>
+<td>Version</td><td>1.0</td>
+</tr>
+<tr>
+<td>Short Name</td><td>d</td>
+</tr>
+<tr>
+<td>URI</td><td>http://gratex.com/gjax/tags/dojo</td>
+</tr>
+</table>
+            &nbsp;
+            <p></p>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<td colspan="2"><font size="+2"><b>Tag Summary</b></font></td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ValidationTextBox.html">ValidationTextBox</a></b></td><td>Creates a ValidationTextBox widget (on INPUT tag). The ValidationTextBox widget is a &lt;input&gt; element that checks if user’s input is valid (dijit/form/ValidationTextBox).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="DateTextBox.html">DateTextBox</a></b></td><td>Creates a DateTextBox widget (on INPUT tag). DateTextBox widget is date entry control that allows either typing or choosing a date from calendar widget (dojox/form/DateTextBox).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="NumberTextBox.html">NumberTextBox</a></b></td><td>Creates a NumberTextBox widget (on INPUT tag). The NumberTextBox widget is a textbox for entering and displaying numbers. The NumberTextBox widget is used when user input is restricted to numeric input. (dijit/form/NumberTextBox).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Form.html">Form</a></b></td><td>Creates a Form widget (on FORM tag). The Form widget is equivalent of the HTML &lt;form&gt; element (dijit/form/Form)</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="CheckBox.html">CheckBox</a></b></td><td>Creates a Checkbox widget (on INPUT tag). Css class "rc-label" is added to label. Checkboxes are on/off switches that may be toggled by the user. A switch is "on" when the control element’s selected attribute is set. Several checkboxes in a form may share the same control name. The &lt;input&gt; element is used to create a checkbox control (dijit/form/CheckBox).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="RadioButton.html">RadioButton</a></b></td><td>Creates a RadioButton widget (on INPUT tag). Css class "rc-label" is added to label Radio buttons are on/off switches that may be toggled by the user. User can select only one choice from a list. Several radio buttons in a form may share the same control name. The &lt;input&gt;  element is used to create a radio button control. (dijit/form/RadioButton).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="FilteringSelect.html">FilteringSelect</a></b></td><td>Creates a FilteringSelect widget (on INPUT tag). The FilteringSelect widget is an enhanced version of the &lt;select&gt; element with type-ahead filtering of the drop down list. The FilteringSelect widget searches on the name attribute of objects in dojo.data store. When user open a FilteringSelect menu, by default will see the name attribute of each item in the menu. You can enrich the menu’s content by supplying a different label. (dijit/form/FilteringSelect).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Button.html">Button</a></b></td><td>Creates a Button widget (on BUTTON tag). The Button widget is a representation of a normal &lt;button&gt; with type="submit | reset | button". If not specified, type attribute defaults to 'button' (for browsers consistency). Buttons can have icons and labels (dijit/form/Button). </td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ItemFileReadStore.html">ItemFileReadStore</a></b></td><td>The ItemFileReadStore (on DIV tag) implements the dojo.data.api. The ItemFileReadStore reads the JSON structured contents from an http endpoint (service or URL), or from an in-memory JavaScript object, and stores all the items in-memory for simple and quick access.  (dojo/data/ItemFileReadStore).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="AccordionContainer.html">AccordionContainer</a></b></td><td>Creates a AccordionContainer widget (on DIV tag). The AccordionContainer widget holds a set of panes whose titles are all visible, but only one pane's content is visible at a time. (dijit/layout/AccordionContainer).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="BorderContainer.html">BorderContainer</a></b></td><td>Creates a BorderContainer widget (on DIV tag) as a box with a specified size. The BorderContainer widget is a container partitioned into up to five regions: left, right, top, and bottom with a mandatory center to fill in any remaining space. (dijit/layout/BorderContainerTag).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ContentPane.html">ContentPane</a></b></td><td>Creates a ContentPane widget (on DIV tag). The ContentPane widget embeds a document fragment in the page, specified either by uri, javascript generated markup or DOM reference (dijit/layout/ContentPane).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="StackContainer.html">StackContainer</a></b></td><td>Creates a StackContainer widget (on DIV tag). The Stackcontainer widget is container for wizards, slide shows, and long lists or text blocks.  (dijit/layout/StackContainer).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="TabContainer.html">TabContainer</a></b></td><td>Creates a TabContainer widget (on DIV tag). The TabContainer widget is a container with multiple panes, but shows only one pane at a time. (dijit/layout/TabContainer).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="TitlePane.html">TitlePane</a></b></td><td>Creates a TitlePane widget (on DIV tag). The TitlePane widget is an accessible container with a title Heading, and a content section that slides open and closed. (dijit/TitlePane).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="EnhancedGrid.html">EnhancedGrid</a></b></td><td>Creates an EnhancedGrid widget (on TABLE tag). Output: &lt;table&gt; element, &lt;thead&gt; element and &lt;tr&gt; element. Grids with multirow headers are not supported using taglibrary. Use original markup with table, thead, tr and th. The EnhancedGrid widget is mini spreadsheet, commonly used to display details on master-detail forms. Use column tag to add fields (dojox/grid/EnhancedGrid).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Column.html">Column</a></b></td><td>Creates a column (on TH tag) in the grid with default formatter (formatter="defaultFormatter"). For activation this feature the user must insert require "gjax/formatters". Then user must insert grid.set("formatterScope", formatters); statement before grid.setStore(store); into the JavaScript file. Use within EnhancedGrid tag. Grids with multirow headers are not supported using taglibrary. Use original markup with table, thead, tr and th. </td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="dojo.js.html">dojo.js</a></b></td><td>Loads dojo.js with dojo configuration.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="NumberSpinner.html">NumberSpinner</a></b></td><td>Creates a NumberSpinner widget (on INPUT tag). A dijit.form.NumberTextBox extension to provide keyboard accessible value selection as well as icons for spinning direction. When using the keyboard, the typematic rules apply, meaning holding the key will gradually increase or decrease the value and accelerate.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ComboBox.html">ComboBox</a></b></td><td>Creates a ComboBox widget (on SELECT tag). The ComboBox is a hybrid between a SELECT combo-box and an INPUT text field.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ComboButton.html">ComboButton</a></b></td><td>Creates a ComboButton widget (on BUTTON tag). ComboButton is a combination button and drop-down button. Users can click one side to "press" the button, or click an arrow icon to display the drop down.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="DropDownButton.html">DropDownButton</a></b></td><td>Creates a DropDownButton widget (on BUTTON tag). DropDownButton is a button with a drop down.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Textarea.html">Textarea</a></b></td><td>Creates a Textarea widget (on TEXTAREA tag). Textarea dynamically expands/contracts (changing it's height) as the user types, to display all the text without requiring a scroll bar. Takes nearly all the parameters (name, value, etc.) that a vanilla textarea takes. Rows is not supported since this widget adjusts the height.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="SimpleTextarea.html">SimpleTextarea</a></b></td><td>Creates a SimpleTextarea widget (on TEXTAREA tag). SimpleTextarea is a simple textarea that degrades, and responds to minimal LayoutContainer usage, and works with dijit.form.Form. Doesn't automatically size according to input, like Textarea.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Select.html">Select</a></b></td><td>Creates a Select widget (on SELECT tag). Select is a "styleable" select box - it is basically a DropDownButton which can take a &lt;select&gt; as its input.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="TextBox.html">TextBox</a></b></td><td>Creates a TextBox widget (on INPUT tag). TextBox is a base class for textbox form inputs.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="TimeTextBox.html">TimeTextBox</a></b></td><td>Creates a TimeTextBox widget (on INPUT tag). TimeTextBox is a validating, serializable, range-bound time text box with a drop down time picker</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="ToggleButton.html">ToggleButton</a></b></td><td>Creates a ToggleButton widget (on BUTTON tag). ToggleButton is a templated button widget that can be in two states (checked or not). Can be base class for things like tabs or checkbox or radio buttons</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="LinkPane.html">LinkPane</a></b></td><td>Creates a LinkPane widget (on A tag). LinkPane is just a ContentPane that is declared in markup similarly to an anchor. The anchor's body (the words between &lt;a&gt; and &lt;/a&gt;) become the title of the widget (used for TabContainer, AccordionContainer, etc.)</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="MenuItem.html">MenuItem</a></b></td><td>Creates a MenuItem widget (on DIV tag). MenuItem is a line item in a Menu Widget.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="TooltipDialog.html">TooltipDialog</a></b></td><td>Creates a TooltipDialog widget (on DIV tag). TooltipDialog pops up a dialog that appears like a Tooltip.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Editor.html">Editor</a></b></td><td>Creates a Editor widget (on DIV tag). Editor provides basic WYSIWYG editing features, based on the browser's underlying rich text editing capability, accompanied by a toolbar (dijit.Toolbar). A plugin model is available to extend the editor's capabilities as well as the the options available in the toolbar. Content generation may vary across browsers, and clipboard operations may have different results, to name a few limitations. Note: this widget should not be used with the HTML &lt;TEXTAREA&gt; tag - see dijit._editor.RichText for details. </td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="DropDownMenu.html">DropDownMenu</a></b></td><td>Creates a DropDownMenu widget (on DIV tag). DropDownMenu is a menu, without features for context menu (Meaning, drop down menu).</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Dialog.html">Dialog</a></b></td><td>Creates a Dialog widget (on DIV tag). Dijit's modal Dialog Box simulates a regular GUI dialog box. The contents can be arbitrary HTML, but are most often a form or a short paragraph. The user can close the dialog box without acting by clicking on the X button in the top-right corner.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="xDateTextBox.html">xDateTextBox</a></b></td><td>Creates a dojox/form/DateTextBox widget (on INPUT tag), a validating, serializable, range-bound date text box with a popup calendar.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="CheckedMultiSelect.html">CheckedMultiSelect</a></b></td><td>Creates a dojox/form/CheckedMultiSelect widget (on SELECT tag). CheckedMultiSelect uses check boxes and provides a more user-friendly mechanism for multi-selects. By not specifying “multiple=true” in your widget, you will create a widget using radio buttons instead of check boxes.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Uploader.html">Uploader</a></b></td><td>Creates a dojox/form/Uploader widget (on INPUT tag). The widget adds functionality to a standard HTML file input which allows file uploading to a server. If the browser supports the HTML5 file input specification, that functionality is used. If it is not supported (IE or older browsers) plugins are available to enhance the Uploader.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="FileList.html">FileList</a></b></td><td>Creates a dojox/form/uploader/FileList widget (on DIV tag). It automatically connects to an Uploader and detects when files are added, removed, or uploaded and provides a list of the files currently selected by dojox.form.Uploader.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="FloatingPane.html">FloatingPane</a></b></td><td>Creates a dojox/layout/FloatingPane widget (on DIV tag). Floating panes can be resized, minimized/maximized and layered dynamically, similar to application windows within the web page. Unlike dijit.Dialog, FloatingPane is not modal and it is designed to allow multiple active windows.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Repeat.html">Repeat</a></b></td><td>Creates a dojox/mvc/Repeat widget (on DIV tag). A repeat is bound to an intermediate dojo.Stateful node corresponding to an array in the data model. Child dijits or custom view components inside it inherit their parent data binding context from it.</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td width="15%"><b><a href="Group.html">Group</a></b></td><td>Creates a dojox/mvc/Group widget (on DIV tag), a simple model-bound container widget with single-node binding to a data model.</td>
+</tr>
+</table>
+              &nbsp;
+              <p></p>
+<a name="navbar_bottom"></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td COLSPAN="3" BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><a NAME="navbar_bottom_firstrow"></a>
+<table BORDER="0" CELLPADDING="0" CELLSPACING="3">
+<tr ALIGN="center" VALIGN="top">
+<td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a href="../overview-summary.html"><font CLASS="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td><td BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev">    &nbsp;<font CLASS="NavBarFont1Rev">&nbsp;Library&nbsp;</font>&nbsp;</td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><font CLASS="NavBarFont1">&nbsp;Tag&nbsp;</font></td><td BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    &nbsp;<a HREF="../help-doc.html"><font CLASS="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+</tr>
+</table>
+</td><td ALIGN="right" VALIGN="top" ROWSPAN="3"><em></em></td>
+</tr>
+<tr>
+<td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2"></font></td><td BGCOLOR="white" CLASS="NavBarCell2"><font SIZE="-2">
+                &nbsp;<a HREF="../index.html" TARGET="_top"><b>FRAMES</b></a>&nbsp;
+                &nbsp;<a HREF="tld-summary.html" TARGET="_top"><b>NO FRAMES</b></a>&nbsp;
+                <script></script>
+<noscript>
+<a HREF="../alltags-noframe.html" TARGET=""><b>All Tags</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<hr>
+<small><i>
+            Java, JSP, and JavaServer Pages are trademarks or registered 
+            trademarks of Sun Microsystems, Inc. in the US and other countries.
+            Copyright 2002-3 Sun Microsystems, Inc.
+            4150 Network Circle
+            Santa Clara, CA 95054, U.S.A.
+            All Rights Reserved. 
+            </i></small>
+</body>
+</html>
